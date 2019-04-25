@@ -11,7 +11,6 @@ ENV INSTALL_DIR /opt
 # upgrade and install all the libs zway needs ourself in one go
 RUN apt-get update \
  && apt-get dist-upgrade -y \
- && apt-get install -y rpi-update \
  && apt-get install -y wget sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev curl libcurl3
 
 # /etc/z-way/box_type will put the script into boxed mode - automated install
