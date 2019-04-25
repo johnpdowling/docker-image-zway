@@ -1,10 +1,17 @@
-version: "2"
+version: "2.3.8"
 services:
   zway:
     build:
       context: .
-    image: eugenmayer/zway
+    image: johnpdowling/z-way-server
     ports:
       - "8083:8083"
+    volumes:
+      - /opt/z-way-server/config:/opt/z-way-server/config:rw
+      - /opt/z-way-server/storage:/opt/z-way-server/automations/storage:rw
+      - /opt/z-way-server/userModules:/opt/z-way-server/automations/userModules:rw
+      - /opt/z-way-server/ZDDX:/opt/z-way-server/ZDDX:rw
+      - /var/log/docker/zway:/var/log:rw
     devices:
       - "/dev/ttyAMA0:/dev/ttyAMA0"
+      - "/dev/ttyACM0:/dev/ttyACM0"
