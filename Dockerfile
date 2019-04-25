@@ -1,10 +1,10 @@
-FROM armhf/debian:jessie-slim
+FROM armhf/debian:stretch-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 COPY qemu-arm-static /usr/bin
 
-#RUN apt-get update
+RUN apt-get update
 RUN apt-get dist-upgrade -y
 RUN apt-get install -y sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev curl libcurl3
 
