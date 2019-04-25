@@ -6,7 +6,8 @@ COPY qemu-arm-static /usr/bin
 
 RUN apt-get update
 RUN apt-get dist-upgrade -y
-RUN apt-get install -y sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev curl libcurl3
+RUN apt-get install -y wget sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev curl libcurl3
+RUN wget https://storage.z-wave.me/z-way-server/z-way-server-RaspberryPiXTools-v2.3.8.tgz
 
 COPY z-way-server-RaspberryPiXTools-v2.3.8.tgz /opt
 WORKDIR /opt
