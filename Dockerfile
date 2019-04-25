@@ -8,6 +8,9 @@ RUN apt-get update
 RUN apt-get dist-upgrade -y
 RUN apt-get install -y wget sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev curl libcurl3
 
+# /etc/z-way/box_type will put the script into boxed mode - automated install
+RUN mkdir -p /etc/z-way/ && touch /etc/z-way/box_type
+
 #COPY z-way-server-RaspberryPiXTools-v2.3.8.tgz /opt
 WORKDIR /opt
 RUN curl -O https://storage.z-wave.me/z-way-server/z-way-server-RaspberryPiXTools-v2.3.8.tgz
