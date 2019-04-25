@@ -13,7 +13,7 @@ WORKDIR /opt
 RUN curl -O https://storage.z-wave.me/z-way-server/z-way-server-RaspberryPiXTools-v2.3.8.tgz
 RUN tar -xvf z-way-server-RaspberryPiXTools-v2.3.8.tgz && rm z-way-server-RaspberryPiXTools-v2.3.8.tgz
 
-COPY config.xml /opt/z-way-server/
+#COPY config.xml /opt/z-way-server/
 
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/z-way-server/libs
 
