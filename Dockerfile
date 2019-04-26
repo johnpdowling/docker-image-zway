@@ -16,6 +16,12 @@ WORKDIR /opt
 RUN curl -O https://storage.z-wave.me/z-way-server/z-way-server-RaspberryPiXTools-v2.3.8.tgz && \
     tar -zxvf z-way-server-RaspberryPiXTools-v2.3.8.tgz && \
     rm z-way-server-RaspberryPiXTools-v2.3.8.tgz
+    
+#remove folders we already have on disk
+RUN rm -rf /opt/z-way-server/config && \
+    rm -rf /opt/z-way-server/automation/storage && \
+    rm -rf /opt/z-way-server/automation/userModules && \
+    rm -rf /opt/z-way-server/ZDDX
 
 RUN mkdir -p /etc/z-way/ && echo "v2.3.8" > /etc/z-way/VERSION && echo "razberry" > /etc/z-way/box_type
 
@@ -30,6 +36,9 @@ WORKDIR /opt/z-way-server
 CMD ["/opt/z-way-server/z-way-server"]
 
 VOLUME /opt/z-way-server/config
+VOLUME /opt/z-way-server/automation/storage
+VOLUME /opt/z-way-server/automation/userModules
+VOLUME /opt/z-way-server/ZDDX
 
 EXPOSE 8083
 
