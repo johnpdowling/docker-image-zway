@@ -1,8 +1,11 @@
 FROM armhf/debian:stretch-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/Los_Angeles
 
 COPY qemu-arm-static /usr/bin
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # upgrade and install all the libs zway needs ourself in one go
 RUN apt-get update \
